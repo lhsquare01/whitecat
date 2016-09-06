@@ -19,7 +19,15 @@ a:hover{
     margin-left: 10px;
 }
 
-
+.clearfix:after,
+.clearfix:before {
+    content: '';
+    display: block;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+    clear: both;
+}
 /*================model css   功能模块样式*/
 /*顶部通栏*/
 .wct_nav {
@@ -578,10 +586,10 @@ fieldset[disabled] .wct_nav .btn-link:focus {
         left: 45.5%;
         top: 45.5%;
     }
-    #normal_map {
-        height: 200px;
-        width: 200px;
+    .wct_map #normal_map {
+        height: 250px;
     }
+
 }
 
 .sun::before, .sun::after {
@@ -600,20 +608,22 @@ fieldset[disabled] .wct_nav .btn-link:focus {
     -webkit-animation: scale 1s infinite linear;
     -o-animation: scale 1s infinite linear;
     animation: scale 1s infinite linear;
-    /*animation: scale 1s infinite linear;*/
 }
 
 .sun::after {
     -webkit-animation: scale 1s 0.5s infinite linear;
     -o-animation: scale 1s 0.5s infinite linear;
     animation: scale 1s 0.5s infinite linear;
-    /*animation: scale 1s 0.5s infinite linear;*/
 }
 
 @keyframes scale {
     0% {
-        /*transform: scale(1);
-        opacity: 1;*/
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
     }
 
     100% {
