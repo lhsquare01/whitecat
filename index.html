@@ -13,7 +13,7 @@
     <![endif]-->
     <link rel="stylesheet" href="css/index.css"/>
 </head>
-<body>
+<body onload="init()">
 <!--顶部通栏-->
 <header>
 <nav class="navbar wct_nav floor" name="home">
@@ -166,34 +166,60 @@
         <p>QQ:117221325</p>
     </div>
 </div>
-<!--地图-->
+<script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp"></script>
+<script>
+    var jd = 114.368804;
+    var wd = 30.62237;
+    var searchService,map,markers = [];
+    var init = function() {
+        var center = new qq.maps.LatLng(wd,jd);
+        map = new qq.maps.Map(document.getElementById('normal_map'),{
+            center: center,
+            zoom: 13
+        });
+        //设置圆形
+        new qq.maps.Circle({
+            center:new qq.maps.LatLng(wd,jd),
+            radius: 2000,
+            map: map
+        });
+        var latlngBounds = new qq.maps.LatLngBounds();
+        //调用Poi检索类
+        searchService = new qq.maps.SearchService({
+            complete : function(results){
+                var pois = results.detail.pois;
+                for(var i = 0,l = pois.length;i < l; i++){
+                    var poi = pois[i];
+                    latlngBounds.extend(poi.latLng);
+                    var marker = new qq.maps.Marker({
+                        map:map,
+                        position: poi.latLng
+                    });
+
+                    marker.setTitle(i+1);
+
+                    markers.push(marker);
+                }
+                map.fitBounds(latlngBounds);
+            }
+        });
+    }
+
+    //调用poi类信接口
+    function searchKeyword() {
+        var keyword = document.getElementById("keyword").value;
+        region = new qq.maps.LatLng(wd,jd);
+
+        searchService.setPageCapacity(5);
+        searchService.searchNearBy(keyword, region, 2000);//根据中心点坐标、半径和关键字进行周边检索。
+    }
+</script>
 <div class="container-fluid wct_map hidden-xs">
     <div id="normal_map"></div>
     <div class="sun"></div>
 </div>
-<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=4qXTGvclMqTZXkLsU3twnMA7&s=1"></script>
-<script type="text/javascript">
-    var jd = 114.368804;
-    var wd = 30.62237;
-    //普通地图展示
-    var mapOption = {
-        mapType: BMAP_NORMAL_MAP,
-        maxZoom: 18,
-        drawMargin:0,
-        enableFulltimeSpotClick: true,
-        enableHighResolution:true
-    }
-    var map = new BMap.Map("normal_map", mapOption);
-    var testpoint = new BMap.Point(jd, wd);
-    map.centerAndZoom(testpoint, 18);
-    var marker=new BMap.Marker(testpoint);
-    marker.enableDragging();
-    map.addOverlay(marker);
-    marker.addEventListener('dragend',function(e){
-                panorama.setPosition(e.point); //拖动marker后，全景图位置也随着改变
-                panorama.setPov({heading: -40, pitch: 6});}
-    );
-</script>
+
+
 <!--固定导航-->
 
 <div class="wct_fixNav">
