@@ -1,4 +1,5 @@
 /*=================common css  公用样式*/
+
 body{
     font-family:"SimSun","宋体","Arial Narrow";
     font-size: 14px;
@@ -359,6 +360,8 @@ fieldset[disabled] .wct_nav .btn-link:focus {
     -webkit-animation: rotateImg 5s linear infinite;
     -o-animation: rotateImg 5s linear infinite;
     animation: rotateImg 5s linear infinite;
+    -webkit-transform:translate3d(0, 0, 0)
+    transform: translate3d(0, 0, 0);
 }
 
 .wct_skill li::before, .wct_skill li::after{
@@ -428,12 +431,8 @@ fieldset[disabled] .wct_nav .btn-link:focus {
 .wct_skill .rotateSkill6::after{
     background-image: url("../image/AngularJSB.png");
 }
-/*.wct_skill li:hover {*/
-    /*tansform:rotateY(180deg);*/
-/*}*/
 @keyframes rotateImg {
     from{
-        /*transform:rotateY(0deg)*/
         -webkit-transform: rotateY(0deg);
         -moz-transform: rotateY(0deg);
         -ms-transform: rotateY(0deg);
@@ -441,7 +440,6 @@ fieldset[disabled] .wct_nav .btn-link:focus {
         transform: rotateY(0deg);
     }
     to{
-        /*transform:rotateY(360deg)*/
         -webkit-transform: rotateY(360deg);
         -moz-transform: rotateY(360deg);
         -ms-transform: rotateY(360deg);
@@ -481,6 +479,11 @@ fieldset[disabled] .wct_nav .btn-link:focus {
     -ms-transition: all .6s;
     -o-transition: all .6s;
     transition: all .6s;
+    -webkit-transform: rotateZ(60deg);
+    -moz-transform: rotateZ(60deg);
+    -ms-transform: rotateZ(60deg);
+    -o-transform: rotateZ(60deg);
+    transform: rotateZ(60deg);
 }
 .wct_exhibition img:hover {
     top: -3px;
