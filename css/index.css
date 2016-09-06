@@ -363,7 +363,6 @@ fieldset[disabled] .wct_nav .btn-link:focus {
     -webkit-transform:translate3d(0, 0, 0)
     transform: translate3d(0, 0, 0);
 }
-
 .wct_skill li::before, .wct_skill li::after{
     content: '';
     position: absolute;
@@ -432,6 +431,54 @@ fieldset[disabled] .wct_nav .btn-link:focus {
     background-image: url("../image/AngularJSB.png");
 }
 @keyframes rotateImg {
+     from{
+         -webkit-transform: rotateY(0deg);
+         -moz-transform: rotateY(0deg);
+         -ms-transform: rotateY(0deg);
+         -o-transform: rotateY(0deg);
+         transform: rotateY(0deg);
+     }
+     to{
+         -webkit-transform: rotateY(360deg);
+         -moz-transform: rotateY(360deg);
+         -ms-transform: rotateY(360deg);
+         -o-transform: rotateY(360deg);
+         transform: rotateY(360deg);
+     }
+ }
+@-webkit-keyframes rotateImg {
+    from{
+        -webkit-transform: rotateY(0deg);
+        -moz-transform: rotateY(0deg);
+        -ms-transform: rotateY(0deg);
+        -o-transform: rotateY(0deg);
+        transform: rotateY(0deg);
+    }
+    to{
+        -webkit-transform: rotateY(360deg);
+        -moz-transform: rotateY(360deg);
+        -ms-transform: rotateY(360deg);
+        -o-transform: rotateY(360deg);
+        transform: rotateY(360deg);
+    }
+}
+@-moz-keyframes rotateImg {
+    from{
+        -webkit-transform: rotateY(0deg);
+        -moz-transform: rotateY(0deg);
+        -ms-transform: rotateY(0deg);
+        -o-transform: rotateY(0deg);
+        transform: rotateY(0deg);
+    }
+    to{
+        -webkit-transform: rotateY(360deg);
+        -moz-transform: rotateY(360deg);
+        -ms-transform: rotateY(360deg);
+        -o-transform: rotateY(360deg);
+        transform: rotateY(360deg);
+    }
+}
+@-o-keyframes rotateImg {
     from{
         -webkit-transform: rotateY(0deg);
         -moz-transform: rotateY(0deg);
@@ -479,11 +526,6 @@ fieldset[disabled] .wct_nav .btn-link:focus {
     -ms-transition: all .6s;
     -o-transition: all .6s;
     transition: all .6s;
-    -webkit-transform: rotateZ(60deg);
-    -moz-transform: rotateZ(60deg);
-    -ms-transform: rotateZ(60deg);
-    -o-transform: rotateZ(60deg);
-    transform: rotateZ(60deg);
 }
 .wct_exhibition img:hover {
     top: -3px;
@@ -620,6 +662,63 @@ fieldset[disabled] .wct_nav .btn-link:focus {
 }
 
 @keyframes scale {
+    0% {
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: scale(2);
+        -moz-transform: scale(2);
+        -ms-transform: scale(2);
+        -o-transform: scale(2);
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+@-webkit-keyframes scale {
+    0% {
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: scale(2);
+        -moz-transform: scale(2);
+        -ms-transform: scale(2);
+        -o-transform: scale(2);
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+@-moz-keyframes scale {
+    0% {
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: scale(2);
+        -moz-transform: scale(2);
+        -ms-transform: scale(2);
+        -o-transform: scale(2);
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+@-o-keyframes scale {
     0% {
         -webkit-transform: scale(1);
         -moz-transform: scale(1);
